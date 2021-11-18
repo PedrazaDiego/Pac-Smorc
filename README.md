@@ -1,4 +1,5 @@
-
+***
+***
 # Project Game: Pac-Smorc
 
 ## Description 
@@ -13,8 +14,12 @@ This is the regular pac-man game you know and love, with a twist!
 * cd into the directory on your local machine
 * Run open index.html to open the website in your browser and cmd + option + i (MacOS) or ctrl + shift + i (Windows/Linux) to open your dev tools
 
+## [Trello](https://trello.com/b/0l1yLwH9/pac-smorc)
 
- 
+
+***
+## Credits
+Images: [DuckDuckGo](https://duckduckgo.com/)
 ***
 ***
  ###### Project codeName: Keep Calm cand Code On
