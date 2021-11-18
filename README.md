@@ -6,6 +6,9 @@
 This is the regular pac-man game you know and love, with a twist! 
 
 ![image1](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic2.thegamerimages.com%2Fwordpress%2Fwp-content%2Fuploads%2F2020%2F03%2FPacmanHeader.jpg&f=1&nofb=1)
+***
+Play as an Orc an run from the humans, but look up for axes so you can defend yourself. 
+***
 
 <img src="https://i.kym-cdn.com/entries/icons/original/000/032/532/smorcthumb.jpg" alt="Smorc" style="height: 100px; width:;"/><img src="https://i.kym-cdn.com/entries/icons/original/000/032/532/smorcthumb.jpg" alt="Smorc" style="height: 100px; width:;"/><img src="https://i.kym-cdn.com/entries/icons/original/000/032/532/smorcthumb.jpg" alt="Smorc" style="height: 100px; width:;"/><img src="https://i.kym-cdn.com/entries/icons/original/000/032/532/smorcthumb.jpg" alt="Smorc" style="height: 100px; width:;"/><img src="https://i.kym-cdn.com/entries/icons/original/000/032/532/smorcthumb.jpg" alt="Smorc" style="height: 100px; width:;"/>
 
