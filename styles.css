@@ -16,7 +16,7 @@ body {
 }
 #section2 {
     flex-basis: 70%;
-    background-color: skyblue;
+    background-color: black;
 }
 #section3 {
     background-color: pink;
@@ -25,10 +25,18 @@ body {
     align-items: center;
 }
 .playground {
+    text-align: center;
+    border: 0.1em solid white;
     display: grid;
     height: 800px;
     width: 800px;
     margin: auto;
     grid-template-columns: repeat(17, 1fr);
     grid-template-rows: repeat(17, 1fr);
+}
+.plates {
+    border: solid 0.1em black;
+}
+.wall {
+    background-color: darkred;
 }
