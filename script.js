@@ -13,30 +13,31 @@ const walls = [
     251, 253, 256, 258, 259, 261, 262, 263, 264, 265, 267, 268, 270]
 
 
+
 for (let i = 0; i < walls.length; i++){
-    plates[walls[i]].setAttribute('id', `${i}`)
+    plates[walls[i]].setAttribute('id', `${walls[i]}`)
     // plates[walls[i]].classList.add('wall')
+    plates[walls[i]].classList.remove('plates')
     plates[walls[i]].innerHTML = texture
-}
+}// _____________________________________________________________ dotted walls
+
+plates.forEach( (n, n2) =>{
+    plateArray[n2] = n2
+})// _____________________________________________________________ set plateArray values
+
+
+const road = plateArray.filter( (n, n2) => {
+    // console.log(!walls[n])
+    return !walls.includes(n2)
+})// _____________________________________________________________ returns the difference of plateArray and Walls
+
+for (let i = 0; i < road.length; i++){
+    plates[road[i]].innerHTML = orc
+}// ______________________________________________________________ puts the player in the road
 
 
 
 
-
-
-
-
-
-// for (let i = 0; i < walls.length; i++){
-//     if (walls[i] === plates[i]){
-//         plates[i].setAttribute('id', walls[i])
-//     }
-// }
-
-// plateArray.forEach( (n, n2) => {
-//     plates[n2].innerText = `${walls[n2]}`
-//     n.setAttribute('id', `${walls[n2]}`)
-// })
 
 
 
@@ -71,4 +72,4 @@ for (let i = 0; i < walls.length; i++){
 // console.log(plates)
 // console.log(walls)
 //console.log(road)
-// console.log(plateArray)
+console.log(plateArray.length)
