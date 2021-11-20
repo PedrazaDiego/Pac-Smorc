@@ -11,22 +11,24 @@ body {
     justify-content: center;
 }
 #section1 {
-    background-color: pink;
+    background-color: black;
     flex-basis: 15%;
+    color: white;
+    text-align: center;
 }
 #section2 {
     flex-basis: 70%;
     background-color: black;
 }
 #section3 {
-    background-color: pink;
+    background-color: black;
     flex-basis: 15%;
     align-content: center;
     align-items: center;
 }
 .playground {
     text-align: center;
-    border: 0.1em solid white;
+    border: 0.1em solid red;
     display: grid;
     height: 800px;
     width: 800px;

@@ -2,8 +2,9 @@ const body = document.querySelector('#section2')
 const plates = document.querySelectorAll('.plates')
 const grid = document.querySelector('.playground')
 const points = document.querySelectorAll('.meat')
+const strength = document.querySelector('.score')
 const orc = `<img src="https://i.imgur.com/Q9SaLOW.png" height="40px" alt="">`
-const texture = `<img src="https://i.imgur.com/LZeOFm4.png" height="40px" alt="">`
+const texture = `<img src="https://i.imgur.com/bT2HoxX.png" height="40px" alt="">`
 const meat = `<img src="https://i.imgur.com/WETrLO9.png" height="20px" alt="">`
 const addPlate = document.createElement('div')
 const wall = document.querySelectorAll('.wall')
@@ -15,39 +16,39 @@ const walls = [
     194, 195, 196, 197, 199, 202, 205, 207, 208, 212, 216, 217, 219, 222, 227, 229, 231, 236, 239, 241, 244, 248,
     251, 253, 256, 258, 259, 261, 262, 263, 264, 265, 267, 268, 270]
 const road = []
-
+let score = 0
+let orcStart = 0 
 
 
 //___________function___________//
 
-const gameBoard = () =>{
+
+
+const gameBoard = () =>{  //__________________________________dotted walls
     for (let i = 0; i < walls.length; i++){
         plates[walls[i]].setAttribute('id', `${walls[i]}`)
         plates[walls[i]].classList.remove('plates')
         plates[walls[i]].innerHTML = texture
-    }//dotted walls
+    }
     
-    plates.forEach( (n, n2) =>{
+    plates.forEach( (n, n2) =>{ //____________________set plateArray values
         plateArray[n2] = n2
-    })//set plateArray values
+    })
     
-    const x = plateArray.filter( (n, n2) => {
+    const x = plateArray.filter( (n, n2) => { //returns the difference of plateArray and Walls
         return !walls.includes(n2)
         
-    })//returns the difference of plateArray and Walls
+    })
     
-    for (let i = 1; i < x.length; i++){
-        // plates[x[0]].innerHTML = orc
+    for (let i = 1; i < x.length; i++){  //puts the player in the road
         plates[x[i]].classList.add(`meat`)
         plates[x[i]].innerHTML = meat
         road.push(x[i])
-    }//puts the player in the road
+    }
 }
 gameBoard() //Sets gameboard
 
 const playerMove = () =>{
-    let orcStart = 0
-    // plates[orcStart].innerHTML = ''   
     document.addEventListener('keydown', function(e) {
         switch (e.keyCode) {
             case 37:
@@ -56,6 +57,7 @@ const playerMove = () =>{
                     plates[orcStart].innerHTML = orc
                     plates[orcStart + 1].innerHTML = ''
                     console.log(orcStart)
+                    scoreUpdate()
                 }
                 break;
             case 38:
@@ -63,7 +65,9 @@ const playerMove = () =>{
                     orcStart -= 17
                     plates[orcStart].innerHTML = orc
                     plates[orcStart + 17].innerHTML = ''
+                    plates[orcStart + 17].classList.remove('meat')
                     console.log(orcStart)
+                    scoreUpdate()
                 }
                 break;
             case 39:
@@ -72,6 +76,7 @@ const playerMove = () =>{
                     plates[orcStart].innerHTML = orc
                     plates[orcStart - 1].innerHTML = ''
                     console.log(orcStart)
+                    scoreUpdate()
                 }
                 break;
             case 40:
@@ -80,6 +85,7 @@ const playerMove = () =>{
                     plates[orcStart].innerHTML = orc
                     plates[orcStart - 17].innerHTML = ''
                     console.log(orcStart)
+                    scoreUpdate()
                 }
                 break;
         }
@@ -87,16 +93,21 @@ const playerMove = () =>{
 }//block taken from https://www.codegrepper.com/code-examples/javascript/addeventlistener+arrow+keys
 playerMove()//Sets player movement
 
+const scoreUpdate = () => {
+    if(plates[orcStart].classList.contains('meat')){
+        plates[orcStart].classList.remove('meat')
+        score += 10
+        console.log(score)
+        strength.innerHTML = score
+        if (score === 1770){
+            won() 
+        }
+    }
+}
 
-
-
-
-// body.addEventListener('keydown', e => {
-//     console.log(e)
-// })
-// body.addEventListener('click', (e) =>{
-//     console.log(e.target)
-// })
+const won = () => {
+    
+}
 
 //___________events_____________//
 
@@ -113,9 +124,4 @@ playerMove()//Sets player movement
 
 
 //____________console logs__________//
-// console.log(road)
-// console.log(plates)
-// console.log(walls)
-//console.log(road)
-// console.log(plateArray.length)
-// console.log(road)
+console.log(score)
