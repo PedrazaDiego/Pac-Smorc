@@ -47,28 +47,40 @@ gameBoard() //Sets gameboard
 
 const playerMove = () =>{
     let orcStart = 0
-    plates[orcStart].innerHTML = ''   
+    // plates[orcStart].innerHTML = ''   
     document.addEventListener('keydown', function(e) {
         switch (e.keyCode) {
             case 37:
                 if(plates[orcStart].classList.contains('plates')){
                     orcStart -= 1
+                    plates[orcStart].innerHTML = orc
+                    plates[orcStart + 1].innerHTML = ''
                     console.log(orcStart)
                 }
                 break;
             case 38:
-               console.log(e);
+                if(plates[orcStart].classList.contains('plates')){
+                    orcStart -= 17
+                    plates[orcStart].innerHTML = orc
+                    plates[orcStart + 17].innerHTML = ''
+                    console.log(orcStart)
+                }
                 break;
             case 39:
                 if(plates[orcStart].classList.contains('plates')){
                     orcStart += 1
+                    plates[orcStart].innerHTML = orc
+                    plates[orcStart - 1].innerHTML = ''
                     console.log(orcStart)
                 }
-
-
                 break;
             case 40:
-                console.log(e);
+                if(plates[orcStart].classList.contains('plates')){
+                    orcStart += 17
+                    plates[orcStart].innerHTML = orc
+                    plates[orcStart - 17].innerHTML = ''
+                    console.log(orcStart)
+                }
                 break;
         }
     });
