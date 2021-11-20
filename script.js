@@ -15,8 +15,6 @@ const walls = [
     194, 195, 196, 197, 199, 202, 205, 207, 208, 212, 216, 217, 219, 222, 227, 229, 231, 236, 239, 241, 244, 248,
     251, 253, 256, 258, 259, 261, 262, 263, 264, 265, 267, 268, 270]
 const road = []
-let startingPoint = plates[0].innerHTML = orc
-let currentPoint = null
 
 
 
@@ -48,24 +46,34 @@ const gameBoard = () =>{
 gameBoard() //Sets gameboard
 
 const playerMove = () =>{
+    let orcStart = 0
+    plates[orcStart].innerHTML = ''   
     document.addEventListener('keydown', function(e) {
         switch (e.keyCode) {
             case 37:
-                console.log(e);
+                if(plates[orcStart].classList.contains('plates')){
+                    orcStart -= 1
+                    console.log(orcStart)
+                }
                 break;
             case 38:
                console.log(e);
                 break;
             case 39:
-                console.log(e);
+                if(plates[orcStart].classList.contains('plates')){
+                    orcStart += 1
+                    console.log(orcStart)
+                }
+
+
                 break;
             case 40:
                 console.log(e);
                 break;
         }
     });
-}//blocke taken from https://www.codegrepper.com/code-examples/javascript/addeventlistener+arrow+keys
-playerMove()
+}//block taken from https://www.codegrepper.com/code-examples/javascript/addeventlistener+arrow+keys
+playerMove()//Sets player movement
 
 
 
