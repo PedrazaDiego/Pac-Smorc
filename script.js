@@ -44,11 +44,28 @@ const gameBoard = () =>{
         plates[x[i]].innerHTML = meat
         road.push(x[i])
     }//puts the player in the road
-    
 }
 gameBoard() //Sets gameboard
 
-
+const playerMove = () =>{
+    document.addEventListener('keydown', function(e) {
+        switch (e.keyCode) {
+            case 37:
+                console.log(e);
+                break;
+            case 38:
+               console.log(e);
+                break;
+            case 39:
+                console.log(e);
+                break;
+            case 40:
+                console.log(e);
+                break;
+        }
+    });
+}//blocke taken from https://www.codegrepper.com/code-examples/javascript/addeventlistener+arrow+keys
+playerMove()
 
 
 
