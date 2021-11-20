@@ -18,6 +18,7 @@ const walls = [
 const road = []
 let score = 0
 let orcStart = 0 
+let gameOn = false
 
 
 //___________function___________//
@@ -49,47 +50,53 @@ const gameBoard = () =>{  //__________________________________dotted walls
 gameBoard() //Sets gameboard
 
 const playerMove = () =>{
-    document.addEventListener('keydown', function(e) {
-        switch (e.keyCode) {
-            case 37:
-                if(plates[orcStart].classList.contains('plates')){
-                    orcStart -= 1
-                    plates[orcStart].innerHTML = orc
-                    plates[orcStart + 1].innerHTML = ''
-                    console.log(orcStart)
-                    scoreUpdate()
+        document.addEventListener('keydown', function(e) {
+            if(!gameOn){
+                switch (e.keyCode) {
+                    case 37:
+                        if(plates[orcStart].classList.contains('plates')){
+                            orcStart -= 1
+                            plates[orcStart].innerHTML = orc
+                            plates[orcStart + 1].innerHTML = ''
+                            console.log(orcStart)
+                            scoreUpdate()
+                            won()
+                        }
+                        break;
+                    case 38:
+                        if(plates[orcStart].classList.contains('plates')){
+                            orcStart -= 17
+                            plates[orcStart].innerHTML = orc
+                            plates[orcStart + 17].innerHTML = ''
+                            plates[orcStart + 17].classList.remove('meat')
+                            console.log(orcStart)
+                            scoreUpdate()
+                            won()
+                        }
+                        break;
+                    case 39:
+                        if(plates[orcStart].classList.contains('plates')){
+                            orcStart += 1
+                            plates[orcStart].innerHTML = orc
+                            plates[orcStart - 1].innerHTML = ''
+                            console.log(orcStart)
+                            scoreUpdate()
+                            won()
+                        }
+                        break;
+                    case 40:
+                        if(plates[orcStart].classList.contains('plates')){
+                            orcStart += 17
+                            plates[orcStart].innerHTML = orc
+                            plates[orcStart - 17].innerHTML = ''
+                            console.log(orcStart)
+                            scoreUpdate()
+                            won()
+                        }
+                        break;
                 }
-                break;
-            case 38:
-                if(plates[orcStart].classList.contains('plates')){
-                    orcStart -= 17
-                    plates[orcStart].innerHTML = orc
-                    plates[orcStart + 17].innerHTML = ''
-                    plates[orcStart + 17].classList.remove('meat')
-                    console.log(orcStart)
-                    scoreUpdate()
-                }
-                break;
-            case 39:
-                if(plates[orcStart].classList.contains('plates')){
-                    orcStart += 1
-                    plates[orcStart].innerHTML = orc
-                    plates[orcStart - 1].innerHTML = ''
-                    console.log(orcStart)
-                    scoreUpdate()
-                }
-                break;
-            case 40:
-                if(plates[orcStart].classList.contains('plates')){
-                    orcStart += 17
-                    plates[orcStart].innerHTML = orc
-                    plates[orcStart - 17].innerHTML = ''
-                    console.log(orcStart)
-                    scoreUpdate()
-                }
-                break;
-        }
-    });
+            }
+        });
 }//block taken from https://www.codegrepper.com/code-examples/javascript/addeventlistener+arrow+keys
 playerMove()//Sets player movement
 
@@ -99,16 +106,14 @@ const scoreUpdate = () => {
         score += 10
         console.log(score)
         strength.innerHTML = score
-        if (score === 1770){
-            won() 
-        }
     }
 }
 
 const won = () => {
-    
+    if(score === 1770){
+        gameOn = true
+    }
 }
-
 //___________events_____________//
 
 
