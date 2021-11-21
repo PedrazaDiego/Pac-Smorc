@@ -40,9 +40,10 @@ for (let i = 288; i > 271; i--){
 
 
 
+
 const gameBoard = () =>{  //__________________________________dotted walls
     for (let i = 0; i < walls.length; i++){
-        plates[walls[i]].setAttribute('id', `${walls[i]}`)
+        plates[walls[i]].setAttribute('class', `0`)
         plates[walls[i]].classList.remove('plates')
         plates[walls[i]].innerHTML = texture
     }
@@ -72,6 +73,9 @@ const playerMove = () =>{
                         if(plates[orcStart].classList.contains('border-left')){
                             return false
                         }
+                        if(plates[orcStart - 1].classList.contains('0')){
+                            return false
+                        }
                         if(plates[orcStart].classList.contains('plates')){
                             orcStart -= 1
                             plates[orcStart].innerHTML = orc
@@ -83,6 +87,9 @@ const playerMove = () =>{
                         break;
                     case 38:
                         if(plates[orcStart].classList.contains('border-up')){
+                            return false
+                        }
+                        if(plates[orcStart - 17].classList.contains('0')){
                             return false
                         }
                         if(plates[orcStart].classList.contains('plates')){
@@ -99,6 +106,9 @@ const playerMove = () =>{
                         if(plates[orcStart].classList.contains('border-right')){
                             return false
                         }
+                        if(plates[orcStart + 1].classList.contains('0')){
+                            return false
+                        }
                         if(plates[orcStart].classList.contains('plates')){
                             orcStart += 1
                             plates[orcStart].innerHTML = orc
@@ -110,6 +120,9 @@ const playerMove = () =>{
                         break;
                     case 40:
                         if(plates[orcStart].classList.contains('border-down')){
+                            return false
+                        }
+                        if(plates[orcStart + 17].classList.contains('0')){
                             return false
                         }
                         if(plates[orcStart].classList.contains('plates')){
