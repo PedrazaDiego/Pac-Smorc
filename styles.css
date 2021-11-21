@@ -15,6 +15,9 @@ body {
     justify-content: center;
 }
 #section1 {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
     background-color: black;
     flex-basis: 15%;
     color: white;
@@ -46,6 +49,10 @@ body {
 }
 .plates {
     border: solid 0.1em black;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
 }
 .wall {
     background-color: darkred;
@@ -59,4 +66,7 @@ a:visited {
 }
 .human {
     background: url(https://i.imgur.com/VhZg331.png);
+}
+#gameover {
+    opacity: 0;
 }

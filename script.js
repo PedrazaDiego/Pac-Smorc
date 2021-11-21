@@ -3,10 +3,11 @@ const plates = document.querySelectorAll('.plates')
 const grid = document.querySelector('.playground')
 const points = document.querySelectorAll('.meat')
 const strength = document.querySelector('.score')
+const restart = document.querySelector('#gameover')
 const orc = `<img src="https://i.imgur.com/Q9SaLOW.png" height="40px" alt="">`
 const human = `<img src="https://i.imgur.com/68985hw.png" height="40px" alt="">`
 const texture = `<img src="https://i.imgur.com/bT2HoxX.png" height="40px" alt="">`
-const meat = `<img src="https://i.imgur.com/WETrLO9.png" height="20px" alt="">`
+const meat = `<img src="https://i.imgur.com/WETrLO9.png" height="15px" alt="">`
 const addPlate = document.createElement('div')
 const wall = document.querySelectorAll('.wall')
 const plateArray = []
@@ -19,8 +20,20 @@ const walls = [
 const road = []
 let score = 0
 let orcStart = 0 
-let humanStart = 144
+let humanStart = 242
 let gameOn = false
+
+class Humans {
+    constructor(name, speed, start){
+        this.name = name
+        this.speed = speed
+        this.start = start
+    }
+    
+}
+
+
+
 
 
 
@@ -28,7 +41,7 @@ let gameOn = false
 
 
 
-const setBorders = () => {
+const setBorders = () => { //__________________________________sets border
     for (let i = 0; i < 288; i += 17){
         plates[i].classList.add('border-left')
         }
@@ -68,6 +81,7 @@ const gameBoard = () =>{  //__________________________________dotted walls
     }
 }
 gameBoard() //Sets gameboard
+
 
 const humanMove = () => {
     if(!gameOn){
@@ -119,7 +133,7 @@ const humanMove = () => {
         }
     }
 }
-let humanInterval = setInterval(humanMove, 100)
+let humanInterval = setInterval(humanMove, 400)
 
 
 
@@ -206,6 +220,7 @@ const scoreUpdate = () => {
         strength.innerHTML = score
         if(plates[orcStart].classList.contains('human')){
             gameOn = true
+            restart.style.opacity = '1'
         }
     }
 }
@@ -214,11 +229,20 @@ const scoreUpdate = () => {
 const won = () => {
     if(score === 1810){
         gameOn = true
+        restart.style.opacity = '1'
     }
 }
 //___________events_____________//
 
-
+restart.addEventListener('click', () =>{
+    console.log('working')
+    gameBoard()
+    gameOn = false
+    score = 0
+    orcStart = 0
+    humanStart = 242
+    restart.style.opacity = '0'
+})
 
 
 
