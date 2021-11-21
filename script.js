@@ -76,207 +76,231 @@ gameBoard() //Sets gameboard
 humanOneMove = () => {
     if(!gameOn){
         let rng = Math.floor(Math.random()*3.9)
-        if(rng === 0){
-            if(plates[humanOneStart].classList.contains('border-left')){
-                return false
+        if(plates[humanOneStart].innerHTML === `<img src="https://i.imgur.com/Q9SaLOW.png" height="40px" alt="">`){
+            gameOn = true
+            restart.style.opacity = '1'
+        } else {
+            if(rng === 0){
+                if(plates[humanOneStart].classList.contains('border-left')){
+                    return false
+                }
+                if(plates[humanOneStart - 1].classList.contains('0')){
+                    return false
+                }
+                humanOneStart -= 1
+                plates[humanOneStart].classList.add('human')
+                plates[humanOneStart + 1].classList.remove('human')
             }
-            if(plates[humanOneStart - 1].classList.contains('0')){
-                return false
+            if(rng === 1){
+                if(plates[humanOneStart].classList.contains('border-up')){
+                    return false
+                }
+                if(plates[humanOneStart - 17].classList.contains('0')){
+                    return false
+                }
+                humanOneStart -= 17
+                plates[humanOneStart].classList.add('human')
+                plates[humanOneStart + 17].classList.remove('human')
             }
-            humanOneStart -= 1
-            plates[humanOneStart].classList.add('human')
-            plates[humanOneStart + 1].classList.remove('human')
+            if(rng === 2){
+                if(plates[humanOneStart].classList.contains('border-right')){
+                    return false
+                }
+                if(plates[humanOneStart + 1].classList.contains('0')){
+                    return false
+                }
+                humanOneStart += 1
+                plates[humanOneStart].classList.add('human')
+                // plates[humanOneStart].innerHTML = human
+                plates[humanOneStart - 1].classList.remove('human')
+            }
+            if(rng === 3){
+                if(plates[humanOneStart].classList.contains('border-down')){
+                    return false
+                }
+                if(plates[humanOneStart + 17].classList.contains('0')){
+                    return false
+                }
+                humanOneStart += 17
+                plates[humanOneStart].classList.add('human')
+                plates[humanOneStart - 17].classList.remove('human')
+            }
         }
-        if(rng === 1){
-            if(plates[humanOneStart].classList.contains('border-up')){
-                return false
-            }
-            if(plates[humanOneStart - 17].classList.contains('0')){
-                return false
-            }
-            humanOneStart -= 17
-            plates[humanOneStart].classList.add('human')
-            plates[humanOneStart + 17].classList.remove('human')
-        }
-        if(rng === 2){
-            if(plates[humanOneStart].classList.contains('border-right')){
-                return false
-            }
-            if(plates[humanOneStart + 1].classList.contains('0')){
-                return false
-            }
-            humanOneStart += 1
-            plates[humanOneStart].classList.add('human')
-            // plates[humanOneStart].innerHTML = human
-            plates[humanOneStart - 1].classList.remove('human')
-        }
-        if(rng === 3){
-            if(plates[humanOneStart].classList.contains('border-down')){
-                return false
-            }
-            if(plates[humanOneStart + 17].classList.contains('0')){
-                return false
-            }
-            humanOneStart += 17
-            plates[humanOneStart].classList.add('human')
-            plates[humanOneStart - 17].classList.remove('human')
-        }
+        
     }
 }
 humanTwoMove = () => {
     if(!gameOn){
         let rng = Math.floor(Math.random()*3.9)
-        if(rng === 0){
-            if(plates[humanTwoStart].classList.contains('border-left')){
-                return false
+        if(plates[humanTwoStart].innerHTML === `<img src="https://i.imgur.com/Q9SaLOW.png" height="40px" alt="">`){
+            gameOn = true
+            restart.style.opacity = '1'
+        } else {
+            if(rng === 0){
+                if(plates[humanTwoStart].classList.contains('border-left')){
+                    return false
+                }
+                if(plates[humanTwoStart - 1].classList.contains('0')){
+                    return false
+                }
+                humanTwoStart -= 1
+                plates[humanTwoStart].classList.add('human')
+                plates[humanTwoStart + 1].classList.remove('human')
             }
-            if(plates[humanTwoStart - 1].classList.contains('0')){
-                return false
+            if(rng === 1){
+                if(plates[humanTwoStart].classList.contains('border-up')){
+                    return false
+                }
+                if(plates[humanTwoStart - 17].classList.contains('0')){
+                    return false
+                }
+                humanTwoStart -= 17
+                plates[humanTwoStart].classList.add('human')
+                plates[humanTwoStart + 17].classList.remove('human')
             }
-            humanTwoStart -= 1
-            plates[humanTwoStart].classList.add('human')
-            plates[humanTwoStart + 1].classList.remove('human')
+            if(rng === 2){
+                if(plates[humanTwoStart].classList.contains('border-right')){
+                    return false
+                }
+                if(plates[humanTwoStart + 1].classList.contains('0')){
+                    return false
+                }
+                humanTwoStart += 1
+                plates[humanTwoStart].classList.add('human')
+                // plates[humanTwoStart].innerHTML = human
+                plates[humanTwoStart - 1].classList.remove('human')
+            }
+            if(rng === 3){
+                if(plates[humanTwoStart].classList.contains('border-down')){
+                    return false
+                }
+                if(plates[humanTwoStart + 17].classList.contains('0')){
+                    return false
+                }
+                humanTwoStart += 17
+                plates[humanTwoStart].classList.add('human')
+                plates[humanTwoStart - 17].classList.remove('human')
         }
-        if(rng === 1){
-            if(plates[humanTwoStart].classList.contains('border-up')){
-                return false
-            }
-            if(plates[humanTwoStart - 17].classList.contains('0')){
-                return false
-            }
-            humanTwoStart -= 17
-            plates[humanTwoStart].classList.add('human')
-            plates[humanTwoStart + 17].classList.remove('human')
-        }
-        if(rng === 2){
-            if(plates[humanTwoStart].classList.contains('border-right')){
-                return false
-            }
-            if(plates[humanTwoStart + 1].classList.contains('0')){
-                return false
-            }
-            humanTwoStart += 1
-            plates[humanTwoStart].classList.add('human')
-            // plates[humanTwoStart].innerHTML = human
-            plates[humanTwoStart - 1].classList.remove('human')
-        }
-        if(rng === 3){
-            if(plates[humanTwoStart].classList.contains('border-down')){
-                return false
-            }
-            if(plates[humanTwoStart + 17].classList.contains('0')){
-                return false
-            }
-            humanTwoStart += 17
-            plates[humanTwoStart].classList.add('human')
-            plates[humanTwoStart - 17].classList.remove('human')
+        
         }
     }
 }
 humanThreeMove = () => {
     if(!gameOn){
         let rng = Math.floor(Math.random()*3.9)
-        if(rng === 0){
-            if(plates[humanThreeStart].classList.contains('border-left')){
-                return false
+        if(plates[humanTwoStart].innerHTML === `<img src="https://i.imgur.com/Q9SaLOW.png" height="40px" alt="">`){
+            gameOn = true
+            restart.style.opacity = '1'
+        } else {
+            if(rng === 0){
+                if(plates[humanThreeStart].classList.contains('border-left')){
+                    return false
+                }
+                if(plates[humanThreeStart - 1].classList.contains('0')){
+                    return false
+                }
+                humanThreeStart -= 1
+                plates[humanThreeStart].classList.add('human')
+                plates[humanThreeStart + 1].classList.remove('human')
             }
-            if(plates[humanThreeStart - 1].classList.contains('0')){
-                return false
+            if(rng === 1){
+                if(plates[humanThreeStart].classList.contains('border-up')){
+                    return false
+                }
+                if(plates[humanThreeStart - 17].classList.contains('0')){
+                    return false
+                }
+                humanThreeStart -= 17
+                plates[humanThreeStart].classList.add('human')
+                plates[humanThreeStart + 17].classList.remove('human')
             }
-            humanThreeStart -= 1
-            plates[humanThreeStart].classList.add('human')
-            plates[humanThreeStart + 1].classList.remove('human')
+            if(rng === 2){
+                if(plates[humanThreeStart].classList.contains('border-right')){
+                    return false
+                }
+                if(plates[humanThreeStart + 1].classList.contains('0')){
+                    return false
+                }
+                humanThreeStart += 1
+                plates[humanThreeStart].classList.add('human')
+                // plates[humanThreeStart].innerHTML = human
+                plates[humanThreeStart - 1].classList.remove('human')
+            }
+            if(rng === 3){
+                if(plates[humanThreeStart].classList.contains('border-down')){
+                    return false
+                }
+                if(plates[humanThreeStart + 17].classList.contains('0')){
+                    return false
+                }
+                humanThreeStart += 17
+                plates[humanThreeStart].classList.add('human')
+                plates[humanThreeStart - 17].classList.remove('human')
         }
-        if(rng === 1){
-            if(plates[humanThreeStart].classList.contains('border-up')){
-                return false
-            }
-            if(plates[humanThreeStart - 17].classList.contains('0')){
-                return false
-            }
-            humanThreeStart -= 17
-            plates[humanThreeStart].classList.add('human')
-            plates[humanThreeStart + 17].classList.remove('human')
-        }
-        if(rng === 2){
-            if(plates[humanThreeStart].classList.contains('border-right')){
-                return false
-            }
-            if(plates[humanThreeStart + 1].classList.contains('0')){
-                return false
-            }
-            humanThreeStart += 1
-            plates[humanThreeStart].classList.add('human')
-            // plates[humanThreeStart].innerHTML = human
-            plates[humanThreeStart - 1].classList.remove('human')
-        }
-        if(rng === 3){
-            if(plates[humanThreeStart].classList.contains('border-down')){
-                return false
-            }
-            if(plates[humanThreeStart + 17].classList.contains('0')){
-                return false
-            }
-            humanThreeStart += 17
-            plates[humanThreeStart].classList.add('human')
-            plates[humanThreeStart - 17].classList.remove('human')
+        
         }
     }
 }
 humanFourMove = () => {
     if(!gameOn){
         let rng = Math.floor(Math.random()*3.9)
-        if(rng === 0){
-            if(plates[humanFourStart].classList.contains('border-left')){
-                return false
+        if(plates[humanTwoStart].innerHTML === `<img src="https://i.imgur.com/Q9SaLOW.png" height="40px" alt="">`){
+            gameOn = true
+            restart.style.opacity = '1'
+        } else {
+            if(rng === 0){
+                if(plates[humanFourStart].classList.contains('border-left')){
+                    return false
+                }
+                if(plates[humanFourStart - 1].classList.contains('0')){
+                    return false
+                }
+                humanFourStart -= 1
+                plates[humanFourStart].classList.add('human')
+                plates[humanFourStart + 1].classList.remove('human')
             }
-            if(plates[humanFourStart - 1].classList.contains('0')){
-                return false
+            if(rng === 1){
+                if(plates[humanFourStart].classList.contains('border-up')){
+                    return false
+                }
+                if(plates[humanFourStart - 17].classList.contains('0')){
+                    return false
+                }
+                humanFourStart -= 17
+                plates[humanFourStart].classList.add('human')
+                plates[humanFourStart + 17].classList.remove('human')
             }
-            humanFourStart -= 1
-            plates[humanFourStart].classList.add('human')
-            plates[humanFourStart + 1].classList.remove('human')
+            if(rng === 2){
+                if(plates[humanFourStart].classList.contains('border-right')){
+                    return false
+                }
+                if(plates[humanFourStart + 1].classList.contains('0')){
+                    return false
+                }
+                humanFourStart += 1
+                plates[humanFourStart].classList.add('human')
+                // plates[humanFourStart].innerHTML = human
+                plates[humanFourStart - 1].classList.remove('human')
+            }
+            if(rng === 3){
+                if(plates[humanFourStart].classList.contains('border-down')){
+                    return false
+                }
+                if(plates[humanFourStart + 17].classList.contains('0')){
+                    return false
+                }
+                humanFourStart += 17
+                plates[humanFourStart].classList.add('human')
+                plates[humanFourStart - 17].classList.remove('human')
         }
-        if(rng === 1){
-            if(plates[humanFourStart].classList.contains('border-up')){
-                return false
-            }
-            if(plates[humanFourStart - 17].classList.contains('0')){
-                return false
-            }
-            humanFourStart -= 17
-            plates[humanFourStart].classList.add('human')
-            plates[humanFourStart + 17].classList.remove('human')
-        }
-        if(rng === 2){
-            if(plates[humanFourStart].classList.contains('border-right')){
-                return false
-            }
-            if(plates[humanFourStart + 1].classList.contains('0')){
-                return false
-            }
-            humanFourStart += 1
-            plates[humanFourStart].classList.add('human')
-            // plates[humanFourStart].innerHTML = human
-            plates[humanFourStart - 1].classList.remove('human')
-        }
-        if(rng === 3){
-            if(plates[humanFourStart].classList.contains('border-down')){
-                return false
-            }
-            if(plates[humanFourStart + 17].classList.contains('0')){
-                return false
-            }
-            humanFourStart += 17
-            plates[humanFourStart].classList.add('human')
-            plates[humanFourStart - 17].classList.remove('human')
+
         }
     }
 }
-setInterval(humanFourMove, 100)
-setInterval(humanThreeMove, 150)
-setInterval(humanTwoMove, 200)
-setInterval(humanOneMove, 250)
+setInterval(humanFourMove, 75)
+setInterval(humanThreeMove, 100)
+setInterval(humanTwoMove, 125)
+setInterval(humanOneMove, 150)
 
 
 
@@ -295,7 +319,6 @@ const playerMove = () =>{
                             orcStart -= 1
                             plates[orcStart].innerHTML = orc
                             plates[orcStart + 1].innerHTML = ''
-                            //console.log(orcStart)
                             scoreUpdate()
                             won()
                         }
@@ -312,7 +335,6 @@ const playerMove = () =>{
                             plates[orcStart].innerHTML = orc
                             plates[orcStart + 17].innerHTML = ''
                             plates[orcStart + 17].classList.remove('meat')
-                            //console.log(orcStart)
                             scoreUpdate()
                             won()
                         }
@@ -328,7 +350,6 @@ const playerMove = () =>{
                             orcStart += 1
                             plates[orcStart].innerHTML = orc
                             plates[orcStart - 1].innerHTML = ''
-                            //console.log(orcStart)
                             scoreUpdate()
                             won()
                         }
@@ -344,7 +365,6 @@ const playerMove = () =>{
                             orcStart += 17
                             plates[orcStart].innerHTML = orc
                             plates[orcStart - 17].innerHTML = ''
-                            //console.log(orcStart)
                             scoreUpdate()
                             won()
                         }
