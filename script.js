@@ -21,8 +21,6 @@ let score = 0
 let orcStart = 0 
 let humanStart = 144
 let gameOn = false
-let rng = Math.floor(Math.random()*3.9) 
-console.log(rng)
 
 
 
@@ -73,6 +71,7 @@ gameBoard() //Sets gameboard
 
 const humanMove = () => {
     if(!gameOn){
+        let rng = Math.floor(Math.random()*3.9)
         if(rng === 0){
             if(plates[humanStart].classList.contains('border-left')){
                 return false
@@ -81,9 +80,7 @@ const humanMove = () => {
                 return false
             }
             humanStart -= 1
-            plates[humanStart].classList.replace('meat', 'human')
-            plates[humanStart].innerHTML = human
-            plates[humanStart + 1].innerHTML = meat
+            plates[humanStart].classList.add('human')
             plates[humanStart + 1].classList.remove('human')
         }
         if(rng === 1){
@@ -94,9 +91,7 @@ const humanMove = () => {
                 return false
             }
             humanStart -= 17
-            plates[humanStart].classList.replace('meat', 'human')
-            plates[humanStart].innerHTML = human
-            plates[humanStart + 17].innerHTML = meat
+            plates[humanStart].classList.add('human')
             plates[humanStart + 17].classList.remove('human')
         }
         if(rng === 2){
@@ -107,9 +102,8 @@ const humanMove = () => {
                 return false
             }
             humanStart += 1
-            plates[humanStart].classList.replace('meat', 'human')
-            plates[humanStart].innerHTML = human
-            plates[humanStart - 1].innerHTML = meat
+            plates[humanStart].classList.add('human')
+            // plates[humanStart].innerHTML = human
             plates[humanStart - 1].classList.remove('human')
         }
         if(rng === 3){
@@ -120,14 +114,13 @@ const humanMove = () => {
                 return false
             }
             humanStart += 17
-            plates[humanStart].classList.replace('meat', 'human')
-            plates[humanStart].innerHTML = human
-            plates[humanStart - 17].innerHTML = meat
+            plates[humanStart].classList.add('human')
             plates[humanStart - 17].classList.remove('human')
         }
     }
 }
-humanMove()
+let humanInterval = setInterval(humanMove, 100)
+
 
 
 const playerMove = () =>{
@@ -145,7 +138,7 @@ const playerMove = () =>{
                             orcStart -= 1
                             plates[orcStart].innerHTML = orc
                             plates[orcStart + 1].innerHTML = ''
-                            console.log(orcStart)
+                            //console.log(orcStart)
                             scoreUpdate()
                             won()
                         }
@@ -162,7 +155,7 @@ const playerMove = () =>{
                             plates[orcStart].innerHTML = orc
                             plates[orcStart + 17].innerHTML = ''
                             plates[orcStart + 17].classList.remove('meat')
-                            console.log(orcStart)
+                            //console.log(orcStart)
                             scoreUpdate()
                             won()
                         }
@@ -178,7 +171,7 @@ const playerMove = () =>{
                             orcStart += 1
                             plates[orcStart].innerHTML = orc
                             plates[orcStart - 1].innerHTML = ''
-                            console.log(orcStart)
+                            //console.log(orcStart)
                             scoreUpdate()
                             won()
                         }
@@ -194,7 +187,7 @@ const playerMove = () =>{
                             orcStart += 17
                             plates[orcStart].innerHTML = orc
                             plates[orcStart - 17].innerHTML = ''
-                            console.log(orcStart)
+                            //console.log(orcStart)
                             scoreUpdate()
                             won()
                         }
@@ -210,8 +203,10 @@ const scoreUpdate = () => {
     if(plates[orcStart].classList.contains('meat')){
         plates[orcStart].classList.remove('meat')
         score += 10
-        console.log(score)
         strength.innerHTML = score
+        if(plates[orcStart].classList.contains('human')){
+            gameOn = true
+        }
     }
 }
 
