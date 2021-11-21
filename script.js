@@ -24,6 +24,22 @@ let gameOn = false
 //___________function___________//
 
 
+for (let i = 0; i < 288; i += 17){
+    plates[i].classList.add('border-left')
+    }
+for (let i = 0; i < 17; i++){
+    plates[i].classList.add('border-up')
+}
+for (let i = 288; i > 0; i -= 17){
+    plates[i].classList.add('border-right')
+}
+for (let i = 288; i > 271; i--){
+    plates[i].classList.add('border-down')
+}
+
+
+
+
 
 const gameBoard = () =>{  //__________________________________dotted walls
     for (let i = 0; i < walls.length; i++){
@@ -54,6 +70,9 @@ const playerMove = () =>{
             if(!gameOn){
                 switch (e.keyCode) {
                     case 37:
+                        if(plates[orcStart].classList.contains('border-left')){
+                            return false
+                        }
                         if(plates[orcStart].classList.contains('plates')){
                             orcStart -= 1
                             plates[orcStart].innerHTML = orc
@@ -64,6 +83,9 @@ const playerMove = () =>{
                         }
                         break;
                     case 38:
+                        if(plates[orcStart].classList.contains('border-up')){
+                            return false
+                        }
                         if(plates[orcStart].classList.contains('plates')){
                             orcStart -= 17
                             plates[orcStart].innerHTML = orc
@@ -75,6 +97,9 @@ const playerMove = () =>{
                         }
                         break;
                     case 39:
+                        if(plates[orcStart].classList.contains('border-right')){
+                            return false
+                        }
                         if(plates[orcStart].classList.contains('plates')){
                             orcStart += 1
                             plates[orcStart].innerHTML = orc
@@ -85,6 +110,9 @@ const playerMove = () =>{
                         }
                         break;
                     case 40:
+                        if(plates[orcStart].classList.contains('border-down')){
+                            return false
+                        }
                         if(plates[orcStart].classList.contains('plates')){
                             orcStart += 17
                             plates[orcStart].innerHTML = orc
@@ -129,4 +157,4 @@ const won = () => {
 
 
 //____________console logs__________//
-console.log(score)
+// console.log(score)
