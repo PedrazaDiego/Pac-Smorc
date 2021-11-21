@@ -26,13 +26,6 @@ let humanThreeStart = 242
 let humanFourStart = 250
 let gameOn = false
 
-class Humans {
-    constructor(name, speed, start){
-        this.name = name
-        this.speed = speed
-        this.start = start
-    } 
-}
 
 //___________function___________//
 
@@ -391,15 +384,3 @@ restart.addEventListener('click', () =>{
     orcStart = 0
     restart.style.opacity = '0'
 })
-
-
-
-
-
-
-
-
-
-
-//____________console logs__________//
-// console.log(score)
