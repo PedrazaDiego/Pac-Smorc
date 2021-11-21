@@ -40,7 +40,6 @@ for (let i = 288; i > 271; i--){
 
 
 
-
 const gameBoard = () =>{  //__________________________________dotted walls
     for (let i = 0; i < walls.length; i++){
         plates[walls[i]].setAttribute('id', `${walls[i]}`)
