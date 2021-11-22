@@ -7,7 +7,7 @@ body {
     flex-flow: column;
     height: 99vh;
     justify-content: center;
-    font-family: 'Press Start 2P';
+    font-family: 'Press Start 2P', sans-serif;
 }
 .section {
     display: flex;
@@ -47,6 +47,21 @@ body {
     margin: auto;
     grid-template-columns: repeat(17, 1fr);
     grid-template-rows: repeat(17, 1fr);
+}
+.references {
+    text-align: center;
+    border: 0.1em solid darkgray;
+    display: grid;
+    height: 800px;
+    width: 800px;
+    margin: auto;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    color: white;
+    font-family: 'Press Start 2P', sans-serif;
+    justify-content: center;
+    align-items: center;
+
 }
 .plates {
     border: solid 0.1em black;
