@@ -132,7 +132,7 @@ humanOneMove = () => {
 humanTwoMove = () => {
     if(!gameOn){
         let rng = Math.floor(Math.random()*3.9)
-        if(plates[humanTwoStart].innerHTML === `<img src="https://i.imgur.com/Q9SaLOW.png" height="40px" alt="">`){
+        if(plates[humanTwoStart].classList.contains('orc')){
             gameOn = true
             restart.style.opacity = '1'
         } else {
@@ -188,7 +188,7 @@ humanTwoMove = () => {
 humanThreeMove = () => {
     if(!gameOn){
         let rng = Math.floor(Math.random()*3.9)
-        if(plates[humanTwoStart].innerHTML === `<img src="https://i.imgur.com/Q9SaLOW.png" height="40px" alt="">`){
+        if(plates[humanTwoStart].classList.contains('orc')){
             gameOn = true
             restart.style.opacity = '1'
         } else {
@@ -244,7 +244,7 @@ humanThreeMove = () => {
 humanFourMove = () => {
     if(!gameOn){
         let rng = Math.floor(Math.random()*3.9)
-        if(plates[humanTwoStart].innerHTML === `<img src="https://i.imgur.com/Q9SaLOW.png" height="40px" alt="">`){
+        if(plates[humanTwoStart].classList.contains('orc')){
             gameOn = true
             restart.style.opacity = '1'
         } else {
@@ -419,3 +419,26 @@ restart.addEventListener('click', () =>{
         plates[i].classList.remove('orc')
     }
 })
+//
+
+
+const movingFunction = () =>{
+    let rng = Math.floor(Math.random()*3.9)
+    let choices = ['','','','']
+    humanOneStart -= 1
+    if (plates[humanOneStart - 1].classList.contains('border-right') || plates[humanOneStart - 1].classList.contains('0')){
+        compare = () => {
+            if(!plates[humanOneStart - 17].classList.contains('border-up') || !plates[humanOneStart - 17].classList.contains('0')){
+                choices[1] = 1
+            }
+            if (!plates[humanOneStart + 1].classList.contains('border-up') || !plates[humanOneStart + 1].classList.contains('0')){
+                choices[2] = 2
+            }
+            if (!plates[humanOneStart + 17].classList.contains('border-up') || !plates[humanOneStart + 17].classList.contains('0')){
+                choices[3] = 3
+            }
+        }
+        console.log(choices)
+    }
+}
+// setInterval(movingFunction, 150)
