@@ -76,7 +76,7 @@ gameBoard() //Sets gameboard
 humanOneMove = () => {
     if(!gameOn){
         let rng = Math.floor(Math.random()*3.9)
-        if(plates[humanOneStart].innerHTML === `<img src="https://i.imgur.com/Q9SaLOW.png" height="40px" alt="">`){
+        if(plates[humanOneStart].classList.contains('orc')){
             gameOn = true
             restart.style.opacity = '1'
         } else {
@@ -318,7 +318,9 @@ const playerMove = () =>{
                         if(plates[orcStart].classList.contains('plates')){
                             orcStart -= 1
                             plates[orcStart].innerHTML = orc
+                            plates[orcStart].classList.add('orc')
                             plates[orcStart + 1].innerHTML = ''
+                            plates[orcStart + 1].classList.remove('orc')
                             scoreUpdate()
                             won()
                         }
@@ -333,8 +335,9 @@ const playerMove = () =>{
                         if(plates[orcStart].classList.contains('plates')){
                             orcStart -= 17
                             plates[orcStart].innerHTML = orc
+                            plates[orcStart].classList.add('orc')
                             plates[orcStart + 17].innerHTML = ''
-                            plates[orcStart + 17].classList.remove('meat')
+                            plates[orcStart + 17].classList.remove('orc')
                             scoreUpdate()
                             won()
                         }
@@ -349,7 +352,9 @@ const playerMove = () =>{
                         if(plates[orcStart].classList.contains('plates')){
                             orcStart += 1
                             plates[orcStart].innerHTML = orc
+                            plates[orcStart].classList.add('orc')
                             plates[orcStart - 1].innerHTML = ''
+                            plates[orcStart - 1].classList.remove('orc')
                             scoreUpdate()
                             won()
                         }
@@ -364,7 +369,9 @@ const playerMove = () =>{
                         if(plates[orcStart].classList.contains('plates')){
                             orcStart += 17
                             plates[orcStart].innerHTML = orc
+                            plates[orcStart].classList.add('orc')
                             plates[orcStart - 17].innerHTML = ''
+                            plates[orcStart - 17].classList.remove('orc')
                             scoreUpdate()
                             won()
                         }
@@ -402,5 +409,13 @@ restart.addEventListener('click', () =>{
     gameOn = false
     score = 0
     orcStart = 0
+    humanOneStart = 37
+    humanTwoStart = 65
+    humanThreeStart = 242
+    humanFourStart = 250
     restart.style.opacity = '0'
+    for(let i = 0; i < plates.length; i++){
+        plates[i].classList.remove('human')
+        plates[i].classList.remove('orc')
+    }
 })
