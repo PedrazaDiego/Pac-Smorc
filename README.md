@@ -17,7 +17,8 @@ Play as an Orc an run from the humans, but look up for axes so you can defend yo
 * cd into the directory on your local machine
 * Run open index.html to open the website in your browser and cmd + option + i (MacOS) or ctrl + shift + i (Windows/Linux) to open your dev tools
 
-## [Trello](https://trello.com/b/0l1yLwH9/pac-smorc)
+## [Trello](https://trello.com/b/BXABlCAC/pac-smorc)
+## [Play](http://ill-mass.surge.sh/)
 
 
 ***

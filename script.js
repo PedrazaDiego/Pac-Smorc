@@ -125,8 +125,7 @@ humanOneMove = () => {
                 plates[humanOneStart].classList.add('human')
                 plates[humanOneStart - 17].classList.remove('human')
             }
-        }
-        
+        }     
     }
 }
 humanTwoMove = () => {
@@ -188,7 +187,7 @@ humanTwoMove = () => {
 humanThreeMove = () => {
     if(!gameOn){
         let rng = Math.floor(Math.random()*3.9)
-        if(plates[humanTwoStart].classList.contains('orc')){
+        if(plates[humanThreeStart].classList.contains('orc')){
             gameOn = true
             restart.style.opacity = '1'
         } else {
@@ -244,7 +243,7 @@ humanThreeMove = () => {
 humanFourMove = () => {
     if(!gameOn){
         let rng = Math.floor(Math.random()*3.9)
-        if(plates[humanTwoStart].classList.contains('orc')){
+        if(plates[humanFourStart].classList.contains('orc')){
             gameOn = true
             restart.style.opacity = '1'
         } else {
@@ -408,6 +407,7 @@ restart.addEventListener('click', () =>{
     gameBoard()
     gameOn = false
     score = 0
+    strength.innerHTML = 0
     orcStart = 0
     humanOneStart = 37
     humanTwoStart = 65
@@ -422,23 +422,3 @@ restart.addEventListener('click', () =>{
 //
 
 
-const movingFunction = () =>{
-    let rng = Math.floor(Math.random()*3.9)
-    let choices = ['','','','']
-    humanOneStart -= 1
-    if (plates[humanOneStart - 1].classList.contains('border-right') || plates[humanOneStart - 1].classList.contains('0')){
-        compare = () => {
-            if(!plates[humanOneStart - 17].classList.contains('border-up') || !plates[humanOneStart - 17].classList.contains('0')){
-                choices[1] = 1
-            }
-            if (!plates[humanOneStart + 1].classList.contains('border-up') || !plates[humanOneStart + 1].classList.contains('0')){
-                choices[2] = 2
-            }
-            if (!plates[humanOneStart + 17].classList.contains('border-up') || !plates[humanOneStart + 17].classList.contains('0')){
-                choices[3] = 3
-            }
-        }
-        console.log(choices)
-    }
-}
-// setInterval(movingFunction, 150)
